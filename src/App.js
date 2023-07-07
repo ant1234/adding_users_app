@@ -3,25 +3,34 @@ import './App.css';
 import AddUser from './components/AddUser';
 import UsersList from './components/UsersList';
 import React,{useState} from 'react';
+import Card from './components/Card';
 
 function App() {
 
-  let userData = {
+  const [userDataSub, setUserDataSub] = useState({
     'username': '',
-    'age':'',
-  };
+    'age': '',
+  });
 
   const addUserHandler = userData => {
-    console.log(userData.username);
-    console.log(userData.age);
+    setUserDataSub({
+      'username': userData.username,
+      'age': userData.age,
+    })
   };
 
   return (
     <div className="App">
       <header className="App-header">
       </header>
-      <AddUser onSubmitUserData={addUserHandler} />
-      <UsersList username={userData.username} age={userData.age} />
+      <div>
+        <Card>
+         <AddUser onSubmitUserData={addUserHandler} />
+        </Card>
+        <Card>
+          <UsersList username={userDataSub.username} age={userDataSub.age}/>
+        </Card>
+      </div>
     </div>
   );
 }
