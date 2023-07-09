@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './AddUser.css';
 import './Button.css';
-import Helper from "./Helper/Helper";
+import Wrapper from "./Helper/Wrapper";
 
 const AddUser = props => {
 
@@ -29,7 +29,7 @@ const AddUser = props => {
     };
 
     return (
-        <Helper>
+        <Wrapper>
             <div className="input">
                 <form onSubmit={addUserHandler}>
                     <label>Username</label>
@@ -39,7 +39,7 @@ const AddUser = props => {
                     <button className="button" type="submit">Add User</button>
                 </form>
             </div>
-        </Helper>
+        </Wrapper>
     );
 };
 
