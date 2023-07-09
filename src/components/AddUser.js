@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './AddUser.css';
 import './Button.css';
+import Helper from "./Helper/Helper";
 
 const AddUser = props => {
 
@@ -28,17 +29,17 @@ const AddUser = props => {
     };
 
     return (
-        <div>
+        <Helper>
             <div className="input">
-                <form>
+                <form onSubmit={addUserHandler}>
                     <label>Username</label>
                     <input type="text" value={username} onChange={usernameHandler}/>
                     <label>Age (Years)</label>
                     <input type="text" value={age} onChange={ageHandler}/>
-                    <button className="button" type="submit" onClick={addUserHandler}>Add User</button>
+                    <button className="button" type="submit">Add User</button>
                 </form>
             </div>
-        </div>
+        </Helper>
     );
 };
 

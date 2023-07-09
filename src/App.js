@@ -7,16 +7,12 @@ import Card from './components/Card';
 
 function App() {
 
-  const [userDataSub, setUserDataSub] = useState({
-    'username': '',
-    'age': '',
-  });
+  const [userDataSub, setUserDataSub] = useState([{'username': '', 'age': ''}]);
 
   const addUserHandler = userData => {
-    setUserDataSub({
-      'username': userData.username,
-      'age': userData.age,
-    })
+    setUserDataSub((prevData) => {
+      return [...prevData, {'username': userData.username, 'age': userData.age }];
+    });
   };
 
   return (
@@ -28,7 +24,7 @@ function App() {
          <AddUser onSubmitUserData={addUserHandler} />
         </Card>
         <Card>
-          <UsersList username={userDataSub.username} age={userDataSub.age}/>
+          <UsersList userData={userDataSub}/>
         </Card>
       </div>
     </div>

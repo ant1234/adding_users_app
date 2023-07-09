@@ -1,19 +1,17 @@
-import React, {useState} from "react";
+import React from 'react';
 
-const UsersList = props => {
-    // if(props.name) {
-    //    return (
-    //    <div className="backdrop">
-    //         <div className="modal">
-    //             <p>Sorry incorrect</p>
-    //         </div>
-    //     </div>
-    //    )}
-    return (
-        <div className="input">
-            <input value={props.username + ' ' + props.age}/>
-        </div>
-    );
+const UsersList = (props) => {
+  return (
+   
+      <ul>
+        {props.userData.map((user) => (
+          <li>
+            {user.username} ({user.age} years old)
+          </li>
+        ))}
+      </ul>
+ 
+  );
 };
 
 export default UsersList;
